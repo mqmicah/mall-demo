@@ -2,6 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+const originalReplace = VueRouter.prototype.replace;
+VueRouter.prototype.replace = function replace(location) {
+    return originalReplace.call(this, location).catch(err => err);
+};
+
 const Home = () =>
     import ('views/home/Home.vue')
 const User = () =>
