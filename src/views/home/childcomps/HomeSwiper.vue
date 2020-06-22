@@ -3,7 +3,7 @@
 <div class='home-swiper'>
     <Swiper>
         <swiper-slide :key='index' v-for='(item,index) in images'>
-            <a :href="item.link"><img slot="swiper-img" :src="item.image" alt=""></a>
+            <a :href="item.link"><img slot="swiper-img" :src="item.image" alt="" @load='imgLoad'></a>
         </swiper-slide>
     </Swiper>
 </div>
@@ -15,7 +15,7 @@ import {SwiperSlide} from 'vue-awesome-swiper'
 export default {
     data() {
         return {
-
+            emitLoad:false
         }
     },
     props:{
@@ -34,11 +34,17 @@ export default {
     },
     components:{
         Swiper,SwiperSlide,
+    },
+    methods:{
+        imgLoad() {
+            if(!this.emitLoad) {
+                this.$emit('imgLoad');
+                this.emitLoad=true;
+            }
+        }
     }
 }
 </script>
 <style scoped>
-.home-swiper{
-    margin-top: 44px;
-}
+
 </style>

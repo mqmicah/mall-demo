@@ -26,5 +26,6 @@ export default {
        position: fixed;
        display: flex;
        bottom: 0;
+       z-index: 999;
    }
 </style>

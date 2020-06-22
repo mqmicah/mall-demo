@@ -30,6 +30,7 @@ export default {
    methods:{
        itemClick(index) {
            this.num=index;
+           this.$emit('catgoryindex',index)
        }
    }
 }

@@ -110,14 +110,21 @@ import BScroll from 'better-scroll';
 export default {
    data() {
        return {
-   
+           scroll:null
        }
    },
    created() {
    },
    mounted() {
-       new BScroll(document.querySelector('.wrapper'),{})
-   
+       let scroll=new BScroll(document.querySelector('.wrapper'),{
+           probeType:3,
+           pullUpLoad:true
+       })
+       scroll.on('scroll',(pos) =>{
+       })
+       scroll.on('pullingUp',finishPullUp=>{
+           scroll.finishPullUp();
+       }) 
    }
 }
 </script>

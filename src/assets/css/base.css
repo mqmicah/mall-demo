@@ -29,7 +29,7 @@ body {
     color: var(--color-text);
     /* rem vw/vh */
     width: 100vw;
-    height: 3000px;
+    height: 100vh;
 }
 
 a {
@@ -59,6 +59,7 @@ a {
 }
 
 img {
+    width: 100%;
     max-width: 100%;
     height: auto;
 }
